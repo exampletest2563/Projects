@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <title>Useful Resources</title>
+</head>
+<body>
+    <h1>Useful Websites</h1>
+    <div class="menu-container">
+
+    </div>
+    <div class="container">
+        <ul class="list-items"></ul>
+    </div>
+    <script>
+        const data = [
+            {
+                header: 'teachable.com',
+                category: 'Academy',
+                description: 'Teachable is a platform that allows you to create and sell online courses.'
+            },
+            {
+                header: 'skillshare.com',
+                category: 'Academy',
+                description: 'Skillshare is an online learning community with thousands of classes for creative and curious people.'
+            },
+            {
+                header: 'skillshare.com',
+                category: 'Academy',
+                description: 'Skillshare is an online learning community with thousands of classes for creative and curious people.'
+            },
+            {
+                header: 'udemy.com',
+                category: 'Academy',
+                description: 'Udemy is an online learning platform with over 130,000 courses taught by expert instructors on a wide range of topics.'
+            },
+            {
+                header: 'coursera.org',
+                category: 'Academy',
+                description: 'Coursera is an online learning platform that offers courses, certificates, and degrees from top universities and companies.'
+            },
+            {
+                header: 'toggl.com',
+                category: 'TimeManagement',
+                description: 'Toggl is a time tracking tool that helps you monitor and manage your time more efficiently.'
+            },
+            {
+                header: 'evernote.com',
+                category: 'Organization',
+                description: 'Evernote is a note-taking and organization tool that allows you to capture and organize your ideas, notes, and tasks in one place.'
+            },
+            {
+                header: 'rescuetime.com',
+                category: 'Productivity',
+                description: 'RescueTime is a productivity tracking app that helps you understand and improve your daily habits and routines.'
+            },
+            {
+                header: 'todoist.com',
+                category: 'TaskManagement',
+                description: 'Todoist is a task management app that helps you organize and prioritize your tasks and projects, making it easier to stay on top of your to-do list.'
+            },
+            {
+                header: 'forestapp.cc',
+                category: 'FocusProductivity',
+                description: 'Forest is a productivity app that helps you stay focused and avoid distractions by planting virtual trees for the time you spend away from your phone.'
+            },
+            {
+                header: 'calendly.com',
+                category: 'Scheduling',
+                description: 'Calendly is a scheduling tool that allows you to easily schedule and manage meetings and appointments without the back-and-forth emails.'
+            },
+            {
+                header: 'pomofocus.io',
+                category: 'TimeManagement',
+                description: 'Pomofocus is a time management tool that uses the Pomodoro technique to help you break down your work into manageable intervals and increase productivity.'
+            },
+            {
+                header: 'toggl.com',
+                category: 'TimeManagement',
+                description: 'Toggl is a time tracking tool that helps you monitor and manage your time more efficiently.'
+            },
+            {
+                header: 'notion.so',
+                category: 'Organization',
+                description: 'Notion is an all-in-one workspace that allows you to organize your notes, tasks, projects, and more in a customizable and collaborative platform.'
+            },
+            {
+                header: 'mindmeister.com',
+                category: 'MindMapping',
+                description: 'MindMeister is a mind mapping tool that helps you visually organize your thoughts, ideas, and plans, making it easier to brainstorm and plan projects.'
+            }
+        ];
+        
+        const menu = document.querySelector('.menu-container');
+        const ul = document.createElement('ul');
+        ul.classList.add('menu');
+        menu.appendChild(ul);
+        const categories = [];
+        data.forEach((item) => {
+            if (!categories.includes(item.category)) {
+                categories.push(item.category);
+            }
+        });
+        categories.forEach((category) => {
+            const li = document.createElement('li');
+            li.classList.add('menu-item');
+            let color = category.toLowerCase();
+            li.classList.add(`category-${color}`);
+            const a = document.createElement('a');
+            a.href = '#';
+            a.innerText = category;
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+
+
+        const list = document.querySelector('.list-items');
+        data.forEach((item) => {
+            const li = document.createElement('li');
+            li.classList.add('item');
+            const div = document.createElement('div');
+            div.classList.add('list-item-container');
+            const a = document.createElement('a');
+            a.href = '#';
+            const header = document.createElement('div');
+            header.classList.add('header');
+            header.innerText = item.header;
+            const category = document.createElement('div');
+            category.classList.add('category');
+            const color = item.category.toLowerCase();
+            category.classList.add(`category-${color}`);
+            category.innerText = item.category;
+            const description = document.createElement('div');
+            description.classList.add('description');
+            description.innerText = item.description;
+            a.appendChild(header);
+            a.appendChild(category);
+            a.appendChild(description);
+            div.appendChild(a);
+            li.appendChild(div);
+            list.appendChild(li);
+        });
+
+        // now set the color based on the category color
+        const items = document.querySelectorAll('li');
+        items.forEach((item) => {
+            const color = document.querySelector('.category').classList[1];
+            let val = '#fafafa';
+            switch (color) {
+                case 'category-productivity': val = '#ffb135'; break;
+                case 'category-academy': val = '#fa6d82'; break;
+                case 'category-business': val = '#6dcdfa'; break;
+            }
+            console.log(color, val);
+            item.style.setProperty('--background-color', val);
+        });
+    </script>
+    <style>
+        body {
+            background-color: #262626;
+            font-family: "Josefin Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            margin: 20px 120px 0 120px;
+            padding: 0;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin: 64px 0;
+            font-size: 54px;
+        }
+        .list-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 36px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .item {
+            background: linear-gradient(180deg,#464646,#262626);
+            padding: 12px;
+            border-radius: 12px;
+        }
+        .item:hover {
+            transform: translateY(-20px);
+            transition: 0.5s;
+            box-shadow: -1rem 1rem 1rem -1rem var(--background-color);
+            background: #242424;
+        }
+        .list-item-container {
+            height: 180px;
+            width: 240px;
+        }
+        .header {
+            margin-bottom: 6px;
+            font-size: 22px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        .description {
+            line-height: 1.6em;
+        }
+        .category {
+            padding: 6px 0;
+        }
+        .category-yellow {
+            color: #ffb135;
+        }
+        .category-academy {
+            color: #fa6d82;
+        }
+        .category-blue {
+            color: #6dcdfa;
+        }
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 64px;
+            padding: 0;
+        }
+        .menu-item {
+            list-style-type: none;
+            margin: 0 12px;
+        }
+        .menu a {
+            font-size: 18px;
+            padding-bottom: 6px;
+  background:
+    linear-gradient(
+      to right,
+      var(--background-color),var(--background-color)
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+  );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat
+  transition: background-size 500ms;
+}
+
+.menu a:hover {
+  background-size: 0 3px, 100% 3px;
+}
+
+    </style>
+</body>
+</html>

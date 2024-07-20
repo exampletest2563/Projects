@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+body {
+    background-color: #0C0D14;
+    color: #FFFFFF;
+}
+
+.reset-spacing {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper .header {
+    background-color: rgba(33, 34, 51, 0.9);
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper .header a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.wrapper .header h1 {
+    font-family: 'Josefin Sans';
+    font-size: 22px;
+    font-weight: 700;
+    padding: 12px 0;
+    margin: 0;
+}
+
+.body {
+    display: flex;
+}
+
+.body .navigation {
+    font-family: 'Josefin Sans';
+    padding-top: 36px;
+    padding-left: 16px;
+    width: 320px;
+}
+
+.body .navigation ul li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.body .navigation ul li:hover {
+    cursor: pointer;
+}
+
+.body .navigation ul li .link-name:hover {
+    color: #DFDFDF;
+    padding-left: 16px;
+    -webkit-transition: all ease 0.25s;
+    -moz-transition: all ease 0.25s;
+    -ms-transition: all ease 0.25s;
+    transition: all ease 0.25s;
+}
+
+.body .navigation ul li svg {
+    height: 26px;
+    width: 26px;
+}
+
+.body .navigation ul .link-name {
+    font-size: 20px;
+    padding-top: 4px;
+}
+
+.body .main {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-top: 36px;
+}
+
+.body .main .card {
+    background-color: rgba(33, 34, 51, 0.9);
+    border-radius: 8px;
+    color: #FAFAFA;
+    font-family: 'Josefin Sans';
+    max-width: 240px;
+}
+
+.body .main .card:hover {
+    cursor: pointer;
+    transform: translateY(-16px);
+    transition: 0.5s;
+    box-shadow: -1rem 1rem 1rem -1rem #FAFAFA;
+}
+
+.body .main .card .link {
+    padding: 8px;
+}
+
+.body .main .card .description {
+    padding: 8px;
+}
